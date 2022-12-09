@@ -1,10 +1,12 @@
-import {  useState } from "react";
+import {  useState, createContext } from "react";
 import  searchCountry  from "../../services/services.js";
 import { CountryCard } from "../CountryCard/CountryCard.js";
 import useJustBecauseHook from "../../hooks/justBecauseHook.js";
 import "./App.css"
+import "./MainApp.css"
 
- 
+export const countryContext = createContext(null)
+
 function MainApp() {
   
   // const [searchTerm, setSearchTerm] = useState()
@@ -56,11 +58,13 @@ function onChangeImage(e){
     
     
     <div className="App">
-      <h1>Search Country:</h1>
-      <input onChange={handleInputchange} />
-      <button onClick={handleSearch}>Search</button>
+      <h1>Search Country</h1>
+      <input className="inputDiv" onChange={handleInputchange} />
+      <button className="button-49" onClick={handleSearch}>Search</button>
       <div className="list">
+      <countryContext.Provider value={searchResults}>
         {searchResults && <CountryCard key={searchResults?.id} country={searchResults?.country} image={searchResults?.image}/>}
+      </countryContext.Provider>
       </div>
 
       <div className="form">
@@ -69,7 +73,7 @@ function onChangeImage(e){
           <input type="text" onChange={onChangeCountry} />
           <label>Image</label>
           <input type="text" onChange={onChangeImage} />
-          <button onClick={onClick}>Submit</button>
+          <button className="button-49" onClick={onClick}>Submit</button>
         </form>
         </div>
     </div>
