@@ -13,7 +13,7 @@ function App() {
       const response = await searchCountry(searchTerm)
       console.log(response)
             setSearchResults(response.payload)
-            console.log(response.payload)
+            console.log(response)
     }
 
   const handleInputchange = (e) => {
@@ -21,14 +21,14 @@ function App() {
   }
  
   return (
+    
+    
     <div className="App">
       <h1>Search Country:</h1>
       <input onChange={handleInputchange} />
       <button onClick={handleSearch}>Search</button>
       <div className="list">
-      {searchResults?.map(country => (
-        <CountryCard key={country.id} country={searchResults.country} image={searchResults.image}/>
-      ))}
+        {searchResults && <CountryCard key={searchResults?.id} country={searchResults?.country} image={searchResults?.image}/>}
       </div>
     </div>
       

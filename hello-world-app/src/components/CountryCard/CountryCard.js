@@ -1,12 +1,11 @@
 import React from 'react'
 
-export function CountryCard({country}) {
+export function CountryCard({country,image }) {
     
     return (
-        <div key={country.key}>
-            <h1>{country.country}</h1>
-            <img src={country.image} alt="country" />
-
+        <div>
+            <h1>{country}</h1>
+            <img src={image} alt="country" />
         </div>
     )
 }
