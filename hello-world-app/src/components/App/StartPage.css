@@ -1,0 +1,10 @@
+.animationDiv{
+    position:flex;
+    align-items: center;
+}
+
+.animation-logo{
+    width: 75%;
+    align-self: center;
+    margin-left: 100px; 
+}

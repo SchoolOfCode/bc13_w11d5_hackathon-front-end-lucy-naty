@@ -1,6 +1,7 @@
 import {Routes, Route, useNavigate} from 'react-router-dom';
 import MainApp from './MainApp.js';
 import Home from './StartPage.js';
+import "./App.css"
 
 export default function App() {
   const navigate = useNavigate();
@@ -18,11 +19,11 @@ export default function App() {
   return (
     <div>
       <div>
-      <button onClick={navigateToHome}>Home</button>
+      <button className="button-49" onClick={navigateToHome}>Home</button>
 
         <hr />
        
-        <button onClick={navigateToMain}>Main</button>
+        <button className="button-49" onClick={navigateToMain}>Main</button>
 
         <Routes>
           <Route path="/home" element={<Home />} />

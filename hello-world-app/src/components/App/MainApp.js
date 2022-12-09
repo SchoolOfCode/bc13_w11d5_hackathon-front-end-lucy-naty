@@ -2,6 +2,7 @@ import {  useState } from "react";
 import  searchCountry  from "../../services/services.js";
 import { CountryCard } from "../CountryCard/CountryCard.js";
 import useJustBecauseHook from "../../hooks/justBecauseHook.js";
+import "./App.css"
 
  
 function MainApp() {
