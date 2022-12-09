@@ -1,7 +1,7 @@
 import React from 'react'
 import {useContext} from "react"
 import "./CountryCard.css"
-
+import {countryContext} from "../App/MainApp.js"
 
 
 export function CountryCard({country,image }) {
