@@ -68,15 +68,21 @@ function onChangeImage(e){
       </div>
 
       <div className="form">
-        <form>
-          <label>Country</label>
-          <input type="text" onChange={onChangeCountry} />
-          <label>Image</label>
-          <input type="text" onChange={onChangeImage} />
-          <button className="button-49" onClick={onClick}>Submit</button>
+        <form className="formContainer">
+            <label>Country</label>
+            <input type="text" onChange={onChangeCountry} />
+
+            <label className="spacingDiv">Image</label>
+            <input type="text" onChange={onChangeImage} />
+
+            <div className="spacingDiv">
+
+            <button className="button-49" onClick={onClick}>Submit</button>
+
+            </div>
         </form>
-        </div>
     </div>
+  </div>
       
   );
 }
