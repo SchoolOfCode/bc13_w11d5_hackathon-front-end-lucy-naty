@@ -1,38 +1,34 @@
-import {  useState } from "react";
-import  searchCountry  from "../../services/services.js";
-import { CountryCard } from "../CountryCard/CountryCard.js";
+import {Routes, Route, useNavigate} from 'react-router-dom';
+import MainApp from './MainApp.js';
+import Home from './StartPage.js';
 
- 
-function App() {
-  //this use state it takes in movie and setMovie which the action.
-  const [searchTerm, setSearchTerm] = useState()
-  const [searchResults, setSearchResults] = useState()
-  //useEffect is fetching my json object response 
-  
-  const handleSearch = async () => {
-      const response = await searchCountry(searchTerm)
-      console.log(response)
-            setSearchResults(response.payload)
-            console.log(response)
-    }
+export default function App() {
+  const navigate = useNavigate();
 
-  const handleInputchange = (e) => {
-    setSearchTerm(e.target.value)
-  }
- 
+  const navigateToHome = () => {
+    // 👇️ navigate to /start page
+    navigate('/home');
+  };
+
+  const navigateToMain = () => {
+    // 👇️ navigate to /main page
+    navigate('/main');
+  };
+
   return (
-    
-    
-    <div className="App">
-      <h1>Search Country:</h1>
-      <input onChange={handleInputchange} />
-      <button onClick={handleSearch}>Search</button>
-      <div className="list">
-        {searchResults && <CountryCard key={searchResults?.id} country={searchResults?.country} image={searchResults?.image}/>}
+    <div>
+      <div>
+      <button onClick={navigateToHome}>Home</button>
+
+        <hr />
+       
+        <button onClick={navigateToMain}>Main</button>
+
+        <Routes>
+          <Route path="/home" element={<Home />} />
+            <Route path="/main" element={<MainApp />} />
+        </Routes>
       </div>
     </div>
-      
   );
 }
-
-export default App;
